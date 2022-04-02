@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "c0R625u4a6T5oytSaZcvYrW3dJJ8hFSOr+WT86Vo9A6akxxgbgQxEjU/f6EY1yIuNj5dKEi2C+n2/UkjhSJZrw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\pglapetina\\Desktop\\Git_Repositorios\\orbita-challenge-full-stack-web\\EdTech\\EdTech.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\pglapetina\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.12\\microsoft.netcore.app.host.win-x64.5.0.12.nupkg.sha512"
+  ],
+  "logs": []
+}
