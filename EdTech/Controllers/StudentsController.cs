@@ -1,8 +1,7 @@
 ﻿using EdTech.Models;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -19,14 +18,14 @@ namespace EdTech.Controllers
         {
             _context = context;
         }
-
+        [EnableCors("Cors")]
         //Get: api/Students
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Students>>> GetStudents()
         {
             return await _context.Students.ToListAsync();
         }
-
+        [EnableCors("Cors")]
         //Get: api/Students
         [HttpGet("{id}")]
         public async Task<ActionResult<Students>> GetStudents(int id)
@@ -40,7 +39,7 @@ namespace EdTech.Controllers
 
             return students;
         }
-
+        [EnableCors("Cors")]
         //Put: api/Students
         [HttpPut("{id}")]
         public async Task<IActionResult> PutStudents(int id, Students students)
@@ -67,7 +66,7 @@ namespace EdTech.Controllers
 
             return NoContent();
         }
-
+        [EnableCors("Cors")]
         //Post: api/Students
         [HttpPost]
         public async Task<ActionResult<Students>> PostStudents(Students students)
@@ -77,7 +76,7 @@ namespace EdTech.Controllers
 
             return CreatedAtAction("GetStudents", new { id = students.id_student }, students);
         }
-
+        [EnableCors("Cors")]
         //Delete: api/Students
         [HttpDelete("{id}")]
         public async Task<ActionResult<Students>> DeleteStudents(int id)

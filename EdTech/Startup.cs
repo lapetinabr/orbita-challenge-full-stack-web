@@ -14,6 +14,7 @@ namespace EdTech
 {
     public class Startup
     {
+        
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -27,6 +28,18 @@ namespace EdTech
             //services.AddRazorPages();
 
             services.AddControllers();
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("Cors",
+                    builder =>
+                    {
+                        builder
+                         .AllowAnyOrigin()
+                         .AllowAnyMethod()
+                         .AllowAnyHeader();
+                    });
+            });
 
             services.AddDbContext<StudentsDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
         }
@@ -49,10 +62,8 @@ namespace EdTech
 
             app.UseAuthorization();
 
-            //app.UseEndpoints(endpoints =>
-            //{
-            //    endpoints.MapRazorPages();
-            //});
+            app.UseCors();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
